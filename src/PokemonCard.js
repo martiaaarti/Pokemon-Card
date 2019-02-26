@@ -33,7 +33,7 @@ const PokemonCard = (props) => {
             <div className='parent m-1'>
                 {pokemons.map((pokemon) => (
                     <div key={pokemon.id} className='card text-center' >
-                        <CardImg top width="90%" height="70%" src={pokemon.img}/>
+                        <CardImg className='thumbnail' top width='70%' height='70%' src={pokemon.img}/>
                         <CardTitle className='p-2'># {pokemon.num} {pokemon.name}</CardTitle>
                         <div className='align-bottom'>
                             {pokemon.type.map((force, index) => (

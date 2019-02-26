@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PokemonCard from './PokemonCard.js';
+import {Route} from 'react-router-dom'
 
 export default class App extends Component {
     state = { pokemons: [] };
@@ -15,7 +16,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
-          <PokemonCard pokemons={this.state.pokemons}/>        
+          <Route exact path='/' render={() => (
+            <PokemonCard pokemons={this.state.pokemons}/> 
+          )} />                 
       </div>
     );
   }
