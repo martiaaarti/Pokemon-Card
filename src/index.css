@@ -8,3 +8,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 0 21%;
+  margin: 15px;
+}
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardTitle, Container } from 'reactstrap';
+import { CardImg, CardTitle } from 'reactstrap';
 
 const PokemonCard = (props) => {
 
@@ -30,10 +30,9 @@ const PokemonCard = (props) => {
     }
 
     return (
-        <Container>
-            <div className='row m-1'>
+            <div className='parent m-1'>
                 {pokemons.map((pokemon) => (
-                    <Card key={pokemon.id} className='col-3 text-center'>
+                    <div key={pokemon.id} className='card text-center' >
                         <CardImg top width="90%" height="70%" src={pokemon.img}/>
                         <CardTitle className='p-2'># {pokemon.num} {pokemon.name}</CardTitle>
                         <div className='align-bottom'>
@@ -43,10 +42,9 @@ const PokemonCard = (props) => {
                                 </span>
                             ))}
                         </div>                        
-                    </Card>
+                    </div>
                 ))}
             </div>
-        </Container>
     )
 }
 export default PokemonCard;
