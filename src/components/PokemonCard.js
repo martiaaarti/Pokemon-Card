@@ -18,28 +18,32 @@ export class PokemonCard extends Component {
     getForceColor(forceType) {
         const colorOfForces = {
             Grass: {
-                background: '$font-color',
-                color: '$grass-color'
+                background: 'rgb(0, 128, 43)',
+                color: 'rgb(242, 242, 242)'
             },
             Poison: {
-                background: '$font-color',
-                color: '$poison-color'
+                background: 'rgb(153, 0, 153)',
+                color: 'rgb(242, 242, 242)'
             },
             Fire: {
-                background: '$font-color',
-                color: '$fire-color'
+                background: 'rgb(255, 71, 26)',
+                color: 'rgb(242, 242, 242)'
             },
             Flying: {
-                background: '$font-color',
-                color: '$flying-color'
+                background: 'rgb(153, 153, 255)',
+                color: 'rgb(242, 242, 242)'
             },
             Water: {
-                background: '$font-color',
-                color: '$water-color'
+                background: 'rgb(0, 153, 255)',
+                color: 'rgb(242, 242, 242)'
             },
             Bug: {
-                background: '$font-color',
-                color: '$bug-color'
+                background: 'rgb(163, 163, 117)',
+                color: 'rgb(242, 242, 242)'
+            },
+            Normal: {
+                background: 'rgb(102, 153, 0)',
+                color: 'rgb(242, 242, 242)'
             }
         };
         return colorOfForces[forceType];
@@ -54,8 +58,7 @@ export class PokemonCard extends Component {
                                     <CardTitle className='p-2'># {pokemon.num} {pokemon.name}</CardTitle>
                                     <div className='align-bottom'>
                                         {pokemon.type.map((force, index) => (
-                                            <span size='sm' className='badge p-1 mx-1 grass-color' key={index}  >
-                                                {/* {this.getForceColor(force)} */}
+                                            <span size='sm' className='badge p-1 mx-1 grass-color' key={index} style={this.getForceColor(force)} >
                                                 {force}
                                             </span>
                                         ))}
