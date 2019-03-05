@@ -9,7 +9,7 @@ export default class App extends Component {
         return (
             <div>
                 <Route exact path='/' component={PokemonCard} /> 
-                <Route path='/details' component={PokemonDetails} />           
+                <Route path='/details/:pokemon_id' component={PokemonDetails} />           
             </div>
         )
     }
