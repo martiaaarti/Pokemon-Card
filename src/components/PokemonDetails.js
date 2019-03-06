@@ -1,20 +1,41 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {getData} from "../actions/index";
 
-export default class PokemonDetails extends Component {
-    state = {}
-    
-    componentDidMount(){
-        let id = this.props.match.params.pokemon_id;
-        this.setState({
-            id: id
-        })
+export class PokemonDetails extends Component {
+    constructor() {
+        super();
     }
-    
-    render() {       
+
+    componentDidMount() {
+        this.props.getData();
+    }
+
+    render() {
+
         return (
-            <div>
-                <h1>{this.state.id}</h1>              
+            <div className='container section pokemon-details'>
+                <div className='card z-depth-0'>
+                    <div className='card-content'>
+                        <span className='card-title'>{this.props.pokemon.id}</span>
+                        <p>Pokemon information</p>
+                    </div>
+                </div>
             </div>
         )
     }
 };
+
+const mapStateToProps = (state, ownProps) => {
+    const id = ownProps.match.params.id;
+    const pokemons = state.pokemons;
+    const pokemon = pokemons ? pokemons[id] : null;
+    return {
+        pokemon: pokemon
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {getData}
+)(PokemonDetails);
