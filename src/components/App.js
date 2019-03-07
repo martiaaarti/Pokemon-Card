@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PokemonCard from './PokemonCard.js';
+import PokemonCards from './PokemonCards.js';
 import PokemonDetails from './PokemonDetails.js';
 
 
@@ -9,7 +9,7 @@ export default class App extends Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path='/' component={PokemonCard} />
+                    <Route exact path='/' component={PokemonCards} />
                     <Route path='/details/:id' component={PokemonDetails} />
                 </Switch>
             </div>
