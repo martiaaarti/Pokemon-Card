@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {getData} from "../actions/index";
+import { connect } from 'react-redux';
+import { getData } from "../actions/index";
+import PokemonThumbnail from './PokemonThumbnail';
+import Details from './Details';
 
 export class PokemonDetails extends Component {
 
@@ -9,13 +11,14 @@ export class PokemonDetails extends Component {
     }
 
     render() {
-
         return (
-            <div className='container section pokemon-details'>
-                <div className='card z-depth-0'>
-                    <div className='card-content'>
-                        <span className='card-title'>{this.props.pokemon.name}</span>
-                        <p>Pokemon information</p>
+            <div className='container section'>
+                <div className='row'>
+                    <div className='col s12 m6'>
+                        <PokemonThumbnail pokemon={this.props.pokemon} />
+                    </div>
+                    <div className='col s12 m5 offset-m1'>
+                        <Details pokemon={this.props.pokemon} />
                     </div>
                 </div>
             </div>
@@ -26,7 +29,7 @@ export class PokemonDetails extends Component {
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.id;
     const pokemons = state.pokemons;
-    const pokemon = pokemons ? pokemons[id] : null;
+    const pokemon = pokemons ? pokemons[id-1] : null;
     return {
         pokemon: pokemon
     }
@@ -34,5 +37,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
     mapStateToProps,
-    {getData}
+    { getData }
 )(PokemonDetails);
