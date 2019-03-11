@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {getData} from "../actions/index";
-import {getForceColor} from './getForceColor';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { getData } from "../actions/index";
+import { getForceColor } from './getForceColor';
+import { Link } from 'react-router-dom';
 
 
-export class PokemonCard extends Component {
+export class PokemonCards extends Component {
     constructor(props) {
         super(props);
 
@@ -21,7 +21,7 @@ export class PokemonCard extends Component {
             <div className='parent m-1'>
                 {this.props.pokemons.map((pokemon) => (
                     <div key={pokemon.id} className='card text-center' >
-                        <img className='card-img-top' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
+                        <img className='card-img-top p-4' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
                         <Link to={'/details/' + pokemon.id} className='link-decoration' style={{ textDecoration: 'none' }}>
                             <h5 className='card-title p-2'>#{pokemon.num} {pokemon.name}</h5>
                         </Link>
@@ -47,5 +47,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    {getData}
-)(PokemonCard);
+    { getData }
+)(PokemonCards);
