@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getData } from "../actions/index";
 import { getForceColor } from './getForceColor';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import '../styles/forceColors.scss';
 
 
 export class PokemonCards extends Component {
@@ -17,9 +19,12 @@ export class PokemonCards extends Component {
     }
 
     render() {
+
+        const {pokemons} = this.props;
+
         return (
             <div className='parent m-1'>
-                {this.props.pokemons.map((pokemon) => (
+                {pokemons.map((pokemon) => (
                     <div key={pokemon.id} className='card text-center' >
                         <img className='card-img-top p-4' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
                         <Link to={'/details/' + pokemon.id} className='link-decoration' style={{ textDecoration: 'none' }}>
@@ -27,7 +32,7 @@ export class PokemonCards extends Component {
                         </Link>
                         <div className='align-bottom mb-2'>
                             {pokemon.type.map((force, i) => (
-                                <span size='sm' className='badge p-1 mx-1' key={i} style={getForceColor(force)} >
+                                <span size='sm' className={'badge p-1 mx-1' + getForceColor(force)} key={i} >
                                     {force}
                                 </span>
                             ))}
@@ -38,6 +43,14 @@ export class PokemonCards extends Component {
         )
     }
 };
+
+PokemonCards.propTypes = {
+    id: PropTypes.number,
+    img: PropTypes.string,
+    num: PropTypes.string,
+    name: PropTypes.string,
+    force: PropTypes.string
+}
 
 const mapStateToProps = (state) => {
     return {

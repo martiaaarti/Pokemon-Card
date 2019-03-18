@@ -13,7 +13,10 @@ export class PokemonDetails extends Component {
     }
 
     render() {
-        return (
+
+        const {pokemon} = this.props;
+
+        return pokemon ? (
             <div className='card mt-4'>
                 <div className='card-header'>
                     <h1 className='text-center'>Pokemon Details
@@ -22,14 +25,14 @@ export class PokemonDetails extends Component {
                 </div>
                 <div className='row no-gutters'>
                     <div className='col-md-4'>
-                        <img src={this.props.pokemon.img} className="card-img p-4" alt="Pokemon Thumbnali"></img>
+                        <img src={pokemon.img} className="card-img p-4" alt="Pokemon Thumbnali"></img>
                     </div>
                     <div className='col-md-8'>
-                        <Details pokemon={this.props.pokemon} />
+                        <Details pokemon={pokemon} />
                     </div>
                 </div>
             </div>
-        )
+        ) : null;
     }
 };
 
