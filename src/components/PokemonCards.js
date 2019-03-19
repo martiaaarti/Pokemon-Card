@@ -5,6 +5,7 @@ import { getForceColor } from './getForceColor';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/forceColors.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export class PokemonCards extends Component {
@@ -20,7 +21,17 @@ export class PokemonCards extends Component {
 
     render() {
 
-        const {pokemons} = this.props;
+        const {pokemons, error, loading} = this.props;
+
+        if(error) {
+            return <h2>Error! {error.message}</h2>;
+        }
+
+        if(loading) {
+            return <div className='container fa-10x'>
+                <FontAwesomeIcon icon='spinner' className='fa-spin fa-pull-center' />
+            </div>
+        }
 
         return (
             <div className='parent m-1'>
@@ -54,7 +65,9 @@ PokemonCards.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        pokemons: state.pokemons
+        pokemons: state.pokemons,
+        loading: state.loading,
+        error: state.error
     };
 }
 

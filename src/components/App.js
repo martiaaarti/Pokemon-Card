@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faSpinner} from '@fortawesome/free-solid-svg-icons'
 import PokemonCards from './PokemonCards.js';
 import PokemonDetails from './PokemonDetails.js';
-library.add(faTimes);
+library.add(faTimes, faSpinner);
 
 export default class App extends Component {
     render() {
