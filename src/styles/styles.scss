@@ -32,3 +32,16 @@ body {
   background: rgb(128, 223, 255);
 }
 
+.spin-icon {
+  grid-column-start: 2;
+  grid-column-end: span 3;
+  grid-row-start: 2;
+  grid-row-end: span 3;
+}
+
+.loading-container {
+  display: grid;
+  grid-template-columns: 45% auto 40%;
+  grid-template-rows: 300px auto 40%;
+}
+

@@ -21,15 +21,18 @@ export class PokemonCards extends Component {
 
     render() {
 
-        const {pokemons, error, loading} = this.props;
+        const { pokemons, error, loading } = this.props;
 
-        if(error) {
+        if (error) {
             return <h2>Error! {error.message}</h2>;
         }
 
-        if(loading) {
-            return <div className='container fa-10x'>
-                <FontAwesomeIcon icon='spinner' className='fa-spin fa-pull-center' />
+        if (loading) {
+            return <div className='loading-container fa-10x'>
+                <div className='spin-icon'>
+                    <FontAwesomeIcon icon='spinner' className=' fa-spin fa-pull-center' />
+                    <h2>Loading...</h2>
+                </div>
             </div>
         }
 
