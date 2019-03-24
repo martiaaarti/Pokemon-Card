@@ -4,7 +4,7 @@ import { FETCH_DATA_FAILURE } from '../constants/action-types.js';
 
 const initialState = {
   pokemons: [],
-  loading: false,
+  loading: false, // zamist loadinf daje status a opcje null, inprogress, succes, error
   error: null
 };
 

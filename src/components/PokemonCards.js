@@ -39,14 +39,14 @@ export class PokemonCards extends Component {
         return (
             <div className='parent m-1'>
                 {pokemons.map((pokemon) => (
-                    <div key={pokemon.id} className='card text-center' >
-                        <img className='card-img-top p-4' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
+                    <div key={pokemon.id} className='card text-center'>
                         <Link to={'/details/' + pokemon.id} className='link-decoration' style={{ textDecoration: 'none' }}>
+                            <img className='card-img-top p-4' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
                             <h5 className='card-title p-2'>#{pokemon.num} {pokemon.name}</h5>
                         </Link>
                         <div className='align-bottom mb-2'>
                             {pokemon.type.map((force, i) => (
-                                <span size='sm' className={'badge p-1 mx-1' + getForceColor(force)} key={i} >
+                                <span size='sm' className={'badge p-1 mx-1' + force} key={i} >
                                     {force}
                                 </span>
                             ))}
@@ -59,11 +59,11 @@ export class PokemonCards extends Component {
 };
 
 PokemonCards.propTypes = {
-    id: PropTypes.number,
-    img: PropTypes.string,
-    num: PropTypes.string,
-    name: PropTypes.string,
-    force: PropTypes.string
+    id: PropTypes.number.isRequired,
+    img: PropTypes.string, //JESLI JESLI JEST REQUIRED
+    num: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    force: PropTypes.string //MOZNA W INNYM PLIKU I DAĆ ONEOF() Z WSZYSTKICH MOCY 
 }
 
 const mapStateToProps = (state) => {

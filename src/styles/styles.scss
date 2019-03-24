@@ -1,30 +1,67 @@
-$link-color: rgb(3, 22, 3);
+// Variabls
+$link-color: rgb(58, 63, 58);
+$screen-sm-max: 576px;
+$screen-md-max: 768px;
+$screen-lg-max: 992px;
+
+// Small devices
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
 
 body {
   margin: 0;
-  padding: 0;  
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .parent {
-  display: flex;
-  flex-wrap: wrap;
-}
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
 
-.card {
-  flex: 1 0 21%;
-  margin: 10px;
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+  }
+
+  @include sm {
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+  }
 }
 
 .link-decoration {
   color: $link-color;
+  transition: transform 0.2s;
 
   &:hover h5 {
-    color: lighten($link-color, 20);
+    color: lighten($link-color, 10);
+    transform: scale(1.03);
   }
 }
 
@@ -44,4 +81,3 @@ body {
   grid-template-columns: 45% auto 40%;
   grid-template-rows: 300px auto 40%;
 }
-
