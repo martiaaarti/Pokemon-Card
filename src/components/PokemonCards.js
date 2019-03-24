@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/forceColors.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {forcePropTypes} from '../types/forcePropTypes.js';
 
 
 export class PokemonCards extends Component {
@@ -58,7 +59,7 @@ PokemonCards.propTypes = {
     img: PropTypes.string, //JESLI JESLI JEST REQUIRED
     num: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    force: PropTypes.oneOf(['Grass', 'Water']).isRequired //MOZNA W INNYM PLIKU I DAĆ ONEOF() Z WSZYSTKICH MOCY 
+    force: forcePropTypes.isRequired //MOZNA W INNYM PLIKU I DAĆ ONEOF() Z WSZYSTKICH MOCY 
 }
 
 const mapStateToProps = (state) => {

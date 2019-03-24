@@ -5,13 +5,6 @@ import { FETCH_DATA_FAILURE } from '../constants/action-types.js';
 const initialState = {
   pokemons: [],
   loading: false, // zamiast loading daje status ,a opcje null, inprogress, succes, error
-  // status: {
-  //   null: null, 
-  //   inprogress: 'inprogress',
-  //   success: 'success', 
-  //   error: 'error'
-  // },
-
   error: null
 };
 
@@ -28,7 +21,7 @@ function rootReducer(state = initialState, action) {
     case FETCH_DATA_SUCCESS: {
       return Object.assign({}, state, {
         loading: false,
-        pokemons: state.pokemons.concat(action.payload),
+        pokemons: action.payload,
       })
     }
 
