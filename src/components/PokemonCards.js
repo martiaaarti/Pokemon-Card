@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getForceColor } from './getForceColor';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import '../styles/forceColors.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {forcePropTypes} from '../types/forcePropTypes.js';
-
+import { withRouter } from "react-router";
 
 export class PokemonCards extends Component {
     constructor(props) {
@@ -54,14 +51,6 @@ export class PokemonCards extends Component {
     }
 };
 
-PokemonCards.propTypes = {
-    id: PropTypes.number.isRequired,
-    img: PropTypes.string, //JESLI JESLI JEST REQUIRED
-    num: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    force: forcePropTypes.isRequired //MOZNA W INNYM PLIKU I DAĆ ONEOF() Z WSZYSTKICH MOCY 
-}
-
 const mapStateToProps = (state) => {
     return {
         pokemons: state.pokemons,
@@ -70,6 +59,6 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps
-)(PokemonCards);
+)(PokemonCards));

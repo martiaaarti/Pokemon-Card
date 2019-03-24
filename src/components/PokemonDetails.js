@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import Details from './Details';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { withRouter } from "react-router";
 
 export class PokemonDetails extends Component {
-
     render() {
-
         const {pokemon} = this.props;
 
         return pokemon ? (
@@ -40,6 +38,6 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps
-)(PokemonDetails);
+)(PokemonDetails));
