@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getData } from "../actions/index";
 import { getForceColor } from './getForceColor';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -15,16 +14,12 @@ export class PokemonCards extends Component {
         this.getForceColor = this.getForceColor;
     }
 
-    componentDidMount() {
-        this.props.getData();
-    }
-
     render() {
 
         const { pokemons, error, loading } = this.props;
 
         if (error) {
-            return <h2>Error! {error.message}</h2>;
+            return <h2> Error! {error.message}</h2>;
         }
 
         if (loading) {
@@ -63,7 +58,7 @@ PokemonCards.propTypes = {
     img: PropTypes.string, //JESLI JESLI JEST REQUIRED
     num: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    force: PropTypes.string //MOZNA W INNYM PLIKU I DAĆ ONEOF() Z WSZYSTKICH MOCY 
+    force: PropTypes.oneOf(['Grass', 'Water']).isRequired //MOZNA W INNYM PLIKU I DAĆ ONEOF() Z WSZYSTKICH MOCY 
 }
 
 const mapStateToProps = (state) => {
@@ -75,6 +70,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(
-    mapStateToProps,
-    { getData }
+    mapStateToProps
 )(PokemonCards);

@@ -8,10 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export class PokemonDetails extends Component {
 
-    componentDidMount() {
-        this.props.getData();
-    }
-
     render() {
 
         const {pokemon} = this.props;
@@ -46,6 +42,5 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(
-    mapStateToProps,
-    { getData }
+    mapStateToProps
 )(PokemonDetails);

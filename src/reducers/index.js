@@ -4,7 +4,14 @@ import { FETCH_DATA_FAILURE } from '../constants/action-types.js';
 
 const initialState = {
   pokemons: [],
-  loading: false, // zamist loadinf daje status a opcje null, inprogress, succes, error
+  loading: false, // zamiast loading daje status ,a opcje null, inprogress, succes, error
+  // status: {
+  //   null: null, 
+  //   inprogress: 'inprogress',
+  //   success: 'success', 
+  //   error: 'error'
+  // },
+
   error: null
 };
 
@@ -35,14 +42,6 @@ function rootReducer(state = initialState, action) {
     default:
     return state;
   }
-
-
-
-  // if (action.type === FETCH_DATA_SUCCESS) {
-  //   return Object.assign({}, state, {
-  //       pokemons: state.pokemons.concat(action.payload)
-  //     });
-  //   }
 }
 
 export default rootReducer;
