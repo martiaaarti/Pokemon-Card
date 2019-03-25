@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/forceColors.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
 
 export class PokemonCards extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ export class PokemonCards extends Component {
                 {pokemons.map((pokemon) => (
                     <div key={pokemon.id} className='card text-center'>
                         <Link to={'/details/' + pokemon.id} className='link-decoration' style={{ textDecoration: 'none' }}>
-                            <img className='card-img-top p-4' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
+                            <img className='card-img-top p-4' height='80%' src={pokemon.img} alt='Pokemon thumbnail' />
                             <h4 className='card-title p-2'>#{pokemon.num} {pokemon.name}</h4>
                         </Link>
                         <div className='align-bottom mb-2'>

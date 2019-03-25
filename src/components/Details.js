@@ -1,6 +1,5 @@
 import React from 'react';
 import { getForceColor } from './getForceColor';
-import PropTypes from 'prop-types';
 import { forcePropTypes } from '../types/forcePropTypes.js';
 import PrevEvolutionDetails from './PrevEvolutionDetails.js';
 import NextEvolutionDetails from './NextEvolutionDetails.js';
@@ -56,17 +55,7 @@ function Details(props) {
 }
 
 Details.propTypes = {
-    num: PropTypes.string,
-    name: PropTypes.string,
-    height: PropTypes.string,
-    weight: PropTypes.string,
-    candy: PropTypes.string,
-    candy_count: PropTypes.number,
-    egg: PropTypes.string,
-    spawn_chance: PropTypes.number,
-    avg_spawns: PropTypes.number,
-    spawn_time: PropTypes.string,
-    weakness: forcePropTypes.isRequired,
-}
+    pokemon: forcePropTypes.isRequired
+    };    
 
 export default Details
