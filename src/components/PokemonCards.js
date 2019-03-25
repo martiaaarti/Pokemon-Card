@@ -35,7 +35,7 @@ export class PokemonCards extends Component {
                     <div key={pokemon.id} className='card text-center'>
                         <Link to={'/details/' + pokemon.id} className='link-decoration' style={{ textDecoration: 'none' }}>
                             <img className='card-img-top p-4' height='80%' src={pokemon.img} alt="Pokemon thumbnail" />
-                            <h5 className='card-title p-2'>#{pokemon.num} {pokemon.name}</h5>
+                            <h4 className='card-title p-2'>#{pokemon.num} {pokemon.name}</h4>
                         </Link>
                         <div className='align-bottom mb-2'>
                             {pokemon.type.map((force, i) => (

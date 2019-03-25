@@ -7,6 +7,7 @@ import { withRouter } from "react-router";
 
 export class PokemonDetails extends Component {
     render() {
+        
         const {pokemon} = this.props;
 
         return pokemon ? (

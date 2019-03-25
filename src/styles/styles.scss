@@ -59,7 +59,7 @@ body {
   color: $link-color;
   transition: transform 0.2s;
 
-  &:hover h5 {
+  &:hover h4 {
     color: lighten($link-color, 10);
     transform: scale(1.03);
   }

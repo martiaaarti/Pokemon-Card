@@ -1,11 +1,15 @@
 import React from 'react';
 import { getForceColor } from './getForceColor';
 import PropTypes from 'prop-types';
+import { forcePropTypes } from '../types/forcePropTypes.js'
 
 const Details = (props) => {
 
-    const countCandy = props.pokemon.candy_count ? props.pokemon.candy_count : "0";
-    const {pokemon} = props;
+    const { pokemon } = props;
+    const countCandy = pokemon.candy_count ? pokemon.candy_count : '0';
+    const prevPokemons = pokemon.prev_evolution ? pokemon.prev_evolution : 'No previous evolution';
+    const nextPokemons = pokemon.next_evolution ? pokemon.next_evolution : 'No next evolution';
+    
 
     return (
         <div className='text-center'>
@@ -23,10 +27,33 @@ const Details = (props) => {
             <div className='align-bottom m-2'>
                 <h3>Weaknesses</h3>
                 {pokemon.weaknesses.map((weakness, i) => (
-                    <h5 className='d-inline' key={i}><span size='sm' className='badge p-1 mx-1' style={getForceColor(weakness)}>
-                        {weakness}
-                    </span></h5>
+                    <h5 className='d-inline' key={i}>
+                        <span size='sm' className='badge p-1 mx-1' style={getForceColor(weakness)}>
+                            {weakness}
+                        </span>
+                    </h5>
                 ))}
+
+                <h3 className='my-3'>Previous and Next pokemon's evolution</h3>
+                <div className='row '>
+                    <div className='col-6'>
+                        <div className='card'>
+                            <h4 className='card-header'>Previous Evolution</h4>
+                            {prevPokemons.map((previous, k) => (
+                                <h4 key={k} className='card-title'># {previous.num} {previous.name}</h4>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className='col-6'>
+                        <div className='card'>
+                            <h4 className='card-header'>Next Evolution</h4>
+                            {nextPokemons.map((evolution, j) => (
+                                <h4 key={j} className='card-title'># {evolution.num} {evolution.name}</h4>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
@@ -43,7 +70,7 @@ Details.propTypes = {
     spawn_chance: PropTypes.number,
     avg_spawns: PropTypes.number,
     spawn_time: PropTypes.string,
-    weakness: PropTypes.string,
+    weakness: forcePropTypes.isRequired,
 }
 
 export default Details
