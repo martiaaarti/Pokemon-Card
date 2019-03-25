@@ -1,14 +1,14 @@
 import React from 'react';
 import { getForceColor } from './getForceColor';
 import PropTypes from 'prop-types';
-import { forcePropTypes } from '../types/forcePropTypes.js'
+import { forcePropTypes } from '../types/forcePropTypes.js';
+import PrevEvolutionDetails from './PrevEvolutionDetails.js';
+import NextEvolutionDetails from './NextEvolutionDetails.js';
 
-const Details = (props) => {
+function Details(props) {
 
     const { pokemon } = props;
     const countCandy = pokemon.candy_count ? pokemon.candy_count : '0';
-    const prevPokemons = pokemon.prev_evolution ? pokemon.prev_evolution : 'No previous evolution';
-    const nextPokemons = pokemon.next_evolution ? pokemon.next_evolution : 'No next evolution';
     
 
     return (
@@ -39,18 +39,14 @@ const Details = (props) => {
                     <div className='col-6'>
                         <div className='card'>
                             <h4 className='card-header'>Previous Evolution</h4>
-                            {prevPokemons.map((previous, k) => (
-                                <h4 key={k} className='card-title'># {previous.num} {previous.name}</h4>
-                            ))}
+                            <PrevEvolutionDetails pokemon={pokemon}/>
                         </div>
                     </div>
 
                     <div className='col-6'>
                         <div className='card'>
                             <h4 className='card-header'>Next Evolution</h4>
-                            {nextPokemons.map((evolution, j) => (
-                                <h4 key={j} className='card-title'># {evolution.num} {evolution.name}</h4>
-                            ))}
+                            <NextEvolutionDetails pokemon={pokemon}/>
                         </div>
                     </div>
                 </div>
