@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import Details from './Details';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { withRouter } from 'react-router';
 
 export class PokemonDetails extends Component {
-
     render() {
-
+        
         const {pokemon} = this.props;
 
         return pokemon ? (
@@ -20,7 +19,7 @@ export class PokemonDetails extends Component {
                 </div>
                 <div className='row no-gutters'>
                     <div className='col-md-4'>
-                        <img src={pokemon.img} className="card-img p-4" alt="Pokemon Thumbnali"></img>
+                        <img src={pokemon.img} className='card-img p-4' alt='Pokemon Thumbnali'></img>
                     </div>
                     <div className='col-md-8'>
                         <Details pokemon={pokemon} />
@@ -40,6 +39,6 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps
-)(PokemonDetails);
+)(PokemonDetails));

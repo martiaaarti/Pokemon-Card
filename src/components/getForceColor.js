@@ -3,9 +3,15 @@ import '../styles/forceColors.scss';
 export const getForceColor = (forceType) => {
     const fontColor = 'rgb(242, 242, 242)';
         const colorOfForces = {
-            Grass: 'grass-force',
+            Grass: {
+                background: 'rgb(0, 128, 43)',
+                color: fontColor
+            },
 
-            Poison: 'poison-force',
+            Poison: {
+                background: 'rgb(153, 0, 153)',
+                color: fontColor
+            },
             Fire: {
                 background: 'rgb(255, 71, 26)',
                 color: fontColor
