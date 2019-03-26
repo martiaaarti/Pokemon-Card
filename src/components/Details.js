@@ -24,7 +24,7 @@ function Details(props) {
                 <h5 className='card-text'><b>Spawn time:</b> {pokemon.spawn_time}</h5>
                 <h5 className='font-weight-bold d-inline'>Multipliers:</h5>
                 {pokemon.multipliers && pokemon.multipliers.map((multi, j) => (
-                    <h5 key={j} className='card-text d-inline'> {multi ? multi : '0'} </h5>
+                    <h5 key={j} className='card-text d-inline'> {multi} </h5>
                 ))}
 
             </div>
