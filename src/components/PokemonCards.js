@@ -31,12 +31,6 @@ export class PokemonCards extends Component {
 
         return (
             <div>
-                <nav aria-label="navigation">
-                    <ul className="pagination justify-content-center pagination-decoration">
-                        <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                        <li className="page-item"><a className="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
                 <div className='parent m-1'>
                     {pokemons.map((pokemon) => (
                         <div key={pokemon.id} className='card text-center'>
@@ -46,7 +40,7 @@ export class PokemonCards extends Component {
                             </Link>
                             <div className='align-bottom mb-2'>
                                 {pokemon.type.map((force, i) => (
-                                    <span size='sm' className={'badge p-1 mx-1' + force} key={i} >
+                                    <span size='sm' className={'badge p-1 mx-1 ' +  force} key={i} >
                                         {force}
                                     </span>
                                 ))}
@@ -54,6 +48,12 @@ export class PokemonCards extends Component {
                         </div>
                     ))}
                 </div>
+                <nav aria-label="navigation">
+                    <ul className="pagination justify-content-center pagination-decoration">
+                        <li className="page-item"><a className="page-link" href="#">Previous</a></li>
+                        <li className="page-item"><a className="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
             </div>
         )
     }
