@@ -6,12 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
 
 export class PokemonCards extends Component {
-    constructor(props) {
-        super(props);
-
-        this.getForceColor = this.getForceColor;
-    }
-
     render() {
 
         const { pokemons, error, loading } = this.props;
@@ -40,7 +34,7 @@ export class PokemonCards extends Component {
                             </Link>
                             <div className='align-bottom mb-2'>
                                 {pokemon.type.map((force, i) => (
-                                    <span size='sm' className={'badge p-1 mx-1 ' +  force} key={i} >
+                                    <span size='sm' className={'badge p-1 mx-1 ' + force} key={i} >
                                         {force}
                                     </span>
                                 ))}
@@ -48,10 +42,14 @@ export class PokemonCards extends Component {
                         </div>
                     ))}
                 </div>
-                <nav aria-label="navigation">
-                    <ul className="pagination justify-content-center pagination-decoration">
-                        <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                        <li className="page-item"><a className="page-link" href="#">Next</a></li>
+                <nav aria-label='navigation'>
+                    <ul className='pagination justify-content-center pagination-decoration'>
+                        <Link to={'/' } style={{ textDecoration: 'none' }}>
+                            <li className='page-item mr-2'>Previous</li>
+                        </Link>
+                        <Link to={'/' + 1} style={{ textDecoration: 'none' }}>
+                            <li className='page-item ml-2'>Next</li>
+                        </Link>
                     </ul>
                 </nav>
             </div>
