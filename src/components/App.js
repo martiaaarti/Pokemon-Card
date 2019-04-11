@@ -19,6 +19,7 @@ export class App extends Component {
             <Router>
                 <div>
                     <Route exact path='/' component={PokemonCards} />
+                    <Route exact path='/:currentPageNumber' component={PokemonCards} />
                     <Route path='/details/:id' component={PokemonDetails} />
                 </div>
             </Router>

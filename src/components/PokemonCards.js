@@ -47,7 +47,7 @@ export class PokemonCards extends Component {
                         <Link to={'/' } style={{ textDecoration: 'none' }}>
                             <li className='page-item mr-2'>Previous</li>
                         </Link>
-                        <Link to={'/' + 1} style={{ textDecoration: 'none' }}>
+                        <Link to={'/' } style={{ textDecoration: 'none' }}>
                             <li className='page-item ml-2'>Next</li>
                         </Link>
                     </ul>

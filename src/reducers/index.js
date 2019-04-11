@@ -21,7 +21,7 @@ function rootReducer(state = initialState, action) {
     case FETCH_DATA_SUCCESS: {
       return Object.assign({}, state, {
         loading: false,
-        pokemons: action.payload,
+        pokemons: action.payload
       })
     }
 
