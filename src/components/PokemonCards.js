@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import '../styles/forceColors.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 
 export class PokemonCards extends Component {
     render() {
 
-        const { pokemons, error, loading } = this.props;
+        const { pokemons, error, loading, previousPage, nextPage } = this.props;
 
         if (error) {
             return <h2> Error! {error.message}</h2>;
@@ -44,10 +45,10 @@ export class PokemonCards extends Component {
                 </div>
                 <nav aria-label='navigation'>
                     <ul className='pagination justify-content-center pagination-decoration'>
-                        <Link to={'/' } style={{ textDecoration: 'none' }}>
+                        <Link to={'/' + previousPage } style={{ textDecoration: 'none' }}>
                             <li className='page-item mr-2'>Previous</li>
                         </Link>
-                        <Link to={'/' } style={{ textDecoration: 'none' }}>
+                        <Link to={'/' + nextPage } style={{ textDecoration: 'none' }}>
                             <li className='page-item ml-2'>Next</li>
                         </Link>
                     </ul>
@@ -57,12 +58,24 @@ export class PokemonCards extends Component {
     }
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+    const currentPageNumber = ownProps.match.params.currentPageNumber;
+    const nextPage = state.pokemons ? (currentPageNumber + 1) : null;
+    const previousPage = state.pokemons ? (currentPageNumber - 1) : null;
+    
+
     return {
+        previousPage: previousPage,
+        nextPage: nextPage,
         pokemons: state.pokemons,
         loading: state.loading,
         error: state.error
     };
+}
+
+PokemonCards.propTypes = {
+    previousPage: PropTypes.number,
+    nextPage: PropTypes.number
 }
 
 export default withRouter(connect(
