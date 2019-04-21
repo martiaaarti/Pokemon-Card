@@ -12,7 +12,6 @@ export class PokemonCards extends Component {
     componentDidUpdate(prevProps) {
         const { currentPageNumber } = this.props;
         if (currentPageNumber !== prevProps.currentPageNumber) {
-            debugger;
             this.props.getData(currentPageNumber);
         }
     }
@@ -55,11 +54,17 @@ export class PokemonCards extends Component {
                 </div>
                 <nav aria-label='navigation'>
                     <ul className='pagination justify-content-center pagination-decoration'>
-                        <Link to={'/' + previousPage } style={{ textDecoration: 'none' }}>
-                            <li className='page-item mr-2'>Previous</li>
+                        <Link
+                            to={'/' + previousPage}
+                            style={this.props.currentPageNumber === 1 ? { textDecoration: 'none', pointerEvents: 'none', color: 'rgb(111, 114, 111)' } : { textDecoration: 'none', color: 'rgb(58, 63, 58)' }}
+                        >
+                            <li className='pagination-link page-item mr-2'>Previous</li>
                         </Link>
-                        <Link to={'/' + nextPage } style={{ textDecoration: 'none' }}>
-                            <li className='page-item ml-2'>Next</li>
+                        <Link
+                            to={'/' + nextPage}
+                            style={this.props.currentPageNumber === 13 ? { textDecoration: 'none', pointerEvents: 'none', color: 'rgb(111, 114, 111)' } : { textDecoration: 'none', color: 'rgb(58, 63, 58)' }}
+                        >
+                            <li className='pagination-link page-item ml-2'>Next</li>
                         </Link>
                     </ul>
                 </nav>

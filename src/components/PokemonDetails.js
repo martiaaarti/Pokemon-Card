@@ -4,11 +4,12 @@ import Details from './Details';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
+import { getData } from '../actions/index';
 
 export class PokemonDetails extends Component {
     render() {
-        
-        const {pokemon} = this.props;
+
+        const { pokemon } = this.props;
 
         return pokemon ? (
             <div className='card mt-4'>
@@ -40,5 +41,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default withRouter(connect(
-    mapStateToProps
+    mapStateToProps,
+    { getData }
 )(PokemonDetails));
