@@ -10,7 +10,6 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-
     case FETCH_DATA_BEGIN: {
       return Object.assign({}, state, {
         loading: true,

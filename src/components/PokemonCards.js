@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getData } from '../actions/index';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import '../styles/forceColors.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
-import PropTypes from 'prop-types';
 
 export class PokemonCards extends Component {
+
+    componentDidUpdate(prevProps) {
+        const { currentPageNumber } = this.props;
+        if (currentPageNumber !== prevProps.currentPageNumber) {
+            debugger;
+            this.props.getData(currentPageNumber);
+        }
+    }
+
     render() {
 
         const { pokemons, error, loading, previousPage, nextPage } = this.props;
@@ -62,9 +72,9 @@ const mapStateToProps = (state, ownProps) => {
     const currentPageNumber = Number(ownProps.match.params.currentPageNumber);
     const nextPage = state.pokemons ? (currentPageNumber + 1) : null;
     const previousPage = state.pokemons ? (currentPageNumber - 1) : null;
-    
 
     return {
+        currentPageNumber: currentPageNumber,
         previousPage: previousPage,
         nextPage: nextPage,
         pokemons: state.pokemons,
@@ -79,5 +89,6 @@ PokemonCards.propTypes = {
 }
 
 export default withRouter(connect(
-    mapStateToProps
+    mapStateToProps,
+    { getData }
 )(PokemonCards));
