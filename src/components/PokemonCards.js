@@ -79,7 +79,7 @@ export class PokemonCards extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    const currentPageNumber = Number(ownProps.match.params.currentPageNumber);
+    const currentPageNumber = parseInt(ownProps.match.params.currentPageNumber);
     const nextPage = state.pokemons ? (currentPageNumber + 1) : null;
     const previousPage = state.pokemons ? (currentPageNumber - 1) : null;
 

@@ -32,9 +32,9 @@ export class PokemonDetails extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    const id = ownProps.match.params.id;
+    const id = parseInt(ownProps.match.params.id);
     const pokemons = state.pokemons;
-    const pokemon = pokemons ? pokemons[id - 1] : null;
+    const pokemon = pokemons ? pokemons.find(pokemon => pokemon.id === id) : null;
     return {
         pokemon: pokemon
     }
