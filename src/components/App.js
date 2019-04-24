@@ -4,15 +4,15 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTimes, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import PokemonCards from './PokemonCards';
 import PokemonDetails from './PokemonDetails';
-import { getData } from '../actions/index';
+//import { getData } from '../actions/index';
 import { connect } from 'react-redux';
 library.add(faTimes, faSpinner);
 
 export class App extends Component {
 
-    componentDidMount() {
-        this.props.getData();
-    }
+    // componentDidMount() {
+    //     this.props.getData();
+    // }
 
     render() {
         return (
@@ -28,6 +28,7 @@ export class App extends Component {
 };
 
 export default connect(
-    undefined,
-    { getData }
+    undefined
+    // ,
+    // { getData }
 )(App);

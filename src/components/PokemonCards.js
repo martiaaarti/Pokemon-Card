@@ -9,6 +9,11 @@ import { withRouter } from 'react-router';
 
 export class PokemonCards extends Component {
 
+    componentDidMount() {
+        const { currentPageNumber } = this.props;
+        this.props.getData(currentPageNumber);
+    }
+
     componentDidUpdate(prevProps) {
         const { currentPageNumber } = this.props;
         if (currentPageNumber !== prevProps.currentPageNumber) {
