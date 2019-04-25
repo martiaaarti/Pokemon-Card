@@ -3,7 +3,7 @@ import React from 'react';
 function PrevEvolutionDetails(props) {
 
     if (!props.pokemon.prev_evolution) {
-        return <h4 className='my-4'>This is the first evolution form.</h4>;;
+        return <h4 className='my-4'>No previous evolution form.</h4>;;
     }
 
     return (

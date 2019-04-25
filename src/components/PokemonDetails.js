@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Details from './Details';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router';
 import { getData } from '../actions/index';
 
 export class PokemonDetails extends Component {
+    constructor(props) {
+        super(props);
+        this.goBack = this.goBack.bind(this);
+    }
+
+    goBack() {
+        this.props.history.goBack();
+    }
+
     render() {
 
         const { pokemon } = this.props;
 
         return pokemon ? (
+
             <div className='card mt-4'>
                 <div className='card-header'>
                     <h1 className='text-center'>Pokemon Details
-                    <Link to='/'><FontAwesomeIcon icon='times' className='fa-pull-right' style={{ color: '#212529' }} /></Link>
+                    <button type='button' className='close' onClick={this.goBack} aria-label='Close'>
+                            <FontAwesomeIcon icon='times' />
+                        </button>
                     </h1>
                 </div>
                 <div className='row no-gutters'>
