@@ -1,5 +1,13 @@
-# PokemonCards Project
-This is a small React-Redux project which allows the user to choose Pokemon and see all details about him.
+# PokemonCards mini App
+This is a small React-Redux application which was created for the recruitment process.
+The application was created on the basis of the following guidelines:
+* mocking pokemon's list from PokemonAPI, using json-server library
+* use create-react-app
+* use React with Redux
+* add middleware like redux-thunk or redux-saga
+* use Saas and/or Bootstrap
+* follow AirBnB code styleguide
+* add pages pagination
 
 ## TL;DR
 
