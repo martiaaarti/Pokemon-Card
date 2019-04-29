@@ -10,7 +10,6 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-
     case FETCH_DATA_BEGIN: {
       return Object.assign({}, state, {
         loading: true,
@@ -21,7 +20,7 @@ function rootReducer(state = initialState, action) {
     case FETCH_DATA_SUCCESS: {
       return Object.assign({}, state, {
         loading: false,
-        pokemons: action.payload,
+        pokemons: action.payload
       })
     }
 

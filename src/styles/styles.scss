@@ -61,7 +61,7 @@ body {
 
   &:hover h4 {
     color: lighten($link-color, 10);
-    transform: scale(1.03);
+    transform: scale(1.06);
   }
 }
 
@@ -80,4 +80,16 @@ body {
   display: grid;
   grid-template-columns: 45% auto 40%;
   grid-template-rows: 300px auto 40%;
+}
+
+.pagination-decoration {
+  margin-top: 20px;
+}
+
+.pagination-link {
+  font-weight: bold;
+  font-size: 15px;
+  border: 1px solid rgb(118, 122, 118);
+  border-radius: 10px;
+  padding: 6px;
 }

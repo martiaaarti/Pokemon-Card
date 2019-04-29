@@ -3,7 +3,7 @@ import React from 'react';
 function NextEvolutionDetails(props) {
 
     if (!props.pokemon.next_evolution) {
-        return <h4 className='my-4'>There is the last evolution form.</h4>;
+        return <h4 className='my-4'>No next evolution form.</h4>;
     }
 
     return (

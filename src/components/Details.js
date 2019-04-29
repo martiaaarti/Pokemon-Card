@@ -1,5 +1,5 @@
 import React from 'react';
-import { getForceColor } from './getForceColor';
+import '../styles/forceColors.scss';
 import { forcePropTypes } from '../types/forcePropTypes.js';
 import PrevEvolutionDetails from './PrevEvolutionDetails.js';
 import NextEvolutionDetails from './NextEvolutionDetails.js';
@@ -32,7 +32,7 @@ function Details(props) {
                 <h3>Weaknesses</h3>
                 {pokemon.weaknesses.map((weakness, i) => (
                     <h5 className='d-inline' key={i}>
-                        <span size='sm' className='badge p-1 mx-1' style={getForceColor(weakness)}>
+                        <span size='sm' className={'badge p-1 mx-1 ' +  weakness} >
                             {weakness}
                         </span>
                     </h5>
